@@ -17,6 +17,18 @@
     <meta property="og:image" content="http://exe.nith.ac.in/images/logo.png">
     <meta property="og:description" content="Paradox is an online event by Team .EXE which is the technical team of Computer Science & Engineering Department at NIT Hamirpur">
     <title>Paradox - Team .EXE</title>
+        <style type="text/css">
+.demo-card {
+  padding-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 10px;
+}
+.panel-body img {
+    width: 50%;
+    float: left;
+}
+</style>
 
   </head>
 
@@ -27,23 +39,67 @@ include_once('header.php');
 include_once('sessions.php');
 include_once('dbconnect.php');
 
-$ab=mysqli_query($link,"SELECT level from users WHERE google_id=$session_usr");
+$ab=mysqli_query($link,"SELECT level,name,attempt from users WHERE google_id=$session_usr");
 $out=mysqli_fetch_array($ab);
 $l=$out['level'];
-echo $l;
+$nam=$out['name'];
+$atmpt=$out['attempt'];
 
 $bc=mysqli_query($link,"SELECT * from imag WHERE level=$l");
 $out1=mysqli_fetch_array($bc);
 $leve=$out1['location'];
-echo "$leve";
+
+if(isset($_POST['ans']))
+{
+    $answer=$_POST['ans'];
+    //convert to lowercase for matching
+    $answer=strtolower('$answer');
+    ++$atmpt;
+
+    //fetching answer
+    $abc=mysqli_query($link,"SELECT chek from imag WHERE level=$l");    
+    $out3=mysqli_fetch_array($abc);
+    $ansd=$out3['chek'];
+
+    //checking the answer & no. of attempt
+    if ($answer==$ansd) 
+    {
+        //increase the level no. & the attempt count
+        $le=$l+1;
+        $abd=mysqli_connect($link,"UPDATE users SET level='$le', attempts='$atmpt' WHERE google_id=$session_usr");
+        echo "<center>Correct answer</center>";
+        header('Location: paradox.php');
+    }
+    else
+    {
+        //increase attempt count only
+        $abd=mysqli_connect($link,"UPDATE users SET attempts='$atmpt' WHERE google_id=$session_usr");
+        echo "<center>Wrong Answer : Try again</center>";
+        echo $session_usr;
+    }
+
+}
+
 ?>
-<section class="global-page-header">
-</section>
 
-
-
+                <div class="demo-card">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                    <h3 class="panel-title">Paradoox Level #<?php echo $l; ?><span style="float: right"><?php echo $nam; ?></span></h3>
+                            </div>
+                            <div class="panel-body">
+                                <?php echo "<img src=".$leve." />"; ?>
+                            </div>
+                            <div class="panel-footer">
+                                <form action="" method="post">
+                                    <input type="text" name="ans">
+                                    <input type="submit" value="send">
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
 
 <?php
-        echo "<img src=".$leve." />";
+
         include_once('footer.php');
 ?>
