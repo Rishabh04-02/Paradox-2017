@@ -25,8 +25,19 @@ session_start();
 include_once('stylesheets.php'); 
 include_once('header.php');
 include_once('dbconnect.php');
+$sql=("select * from hints");
+$result = mysqli_query($link, $sql);
+    if(!$result)die ("Database access failed:". mysqli_error($link));
+    while($row=mysqli_fetch_array($result))
+        {?>
+            <div class="hints">
+                <span class="level"><?php echo $row['level'] ?></span>
+                <span class="hint1"><?php echo $row['h1'] ?></span>
+                <span class="hint1"><?php echo $row['h2'] ?></span>
+                <span class="hint1"><?php echo $row['h3'] ?></span>
+            </div>
+        <?php } ?>
 
-
-
+<?php
 include_once('footer.php');
 ?>

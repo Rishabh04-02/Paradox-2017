@@ -19,7 +19,7 @@
     <title>Paradox leaderboard - Team .EXE</title>
 
   </head>
-
+<body>
 <?php
 session_start();
 include_once('stylesheets.php'); 
@@ -28,10 +28,25 @@ include_once('sessions.php');
 include_once('dbconnect.php');
 
 ?>
-
-
-
+<?php
+$sql="select * from users order by level desc, attempts asc;";
+$result = mysqli_query($link, $sql);
+    if(!$result)die ("Database access failed:". mysqli_error($link));
+    while($row=mysqli_fetch_array($result))
+        {
+        ?>
+            <div class="userTable">
+                <span class="userImg"> <img src="<?php echo $row['picture']?>"></span>
+                <span class="userName"><?php echo $row['name']?></span>
+                <span class="levels"><?php echo $row['level']?></span>
+                <span class="attempts"><?php echo $row['attempts']?></span>
+            </div>
+                
+                
+                <?php } ?>
 
 <?php
         include_once('footer.php');
 ?>
+    </body>
+</html>
