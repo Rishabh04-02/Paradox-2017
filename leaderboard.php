@@ -30,7 +30,7 @@ include_once('dbconnect.php');
 ?>
 <?php
 $sql="select * from users order by level desc, attempts asc;";
-$result = mysqli_query($link, sql);
+$result = mysqli_query($link, $sql);
     if(!$result)die ("Database access failed:". mysqli_error($link));
     while($row=mysqli_fetch_array($result))
         {
