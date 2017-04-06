@@ -55,9 +55,3 @@ include_once('dbconnect.php');
         echo "</table></div>";
         include_once('footer.php');
 ?>
-<div class="hints">
-                <span class="level"><?php echo $row['level'] ?></span>
-                <span class="hint1"><?php echo $row['h1'] ?></span>
-                <span class="hint1"><?php echo $row['h2'] ?></span>
-                <span class="hint1"><?php echo $row['h3'] ?></span>
-            </div>
