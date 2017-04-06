@@ -26,9 +26,10 @@
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <div class="main-menu">
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.php" class="tooltip-show" data-toggle="tooltip" title="Home Paradox">Home</a></li>
+                            <li><a href="hints.php" class="tooltip-show" data-toggle="tooltip" title="View Paradox hints">Paradox Hints</a></li>
                             <li><a href="http://exe.nith.ac.in/confess/" class="tooltip-show" data-toggle="tooltip" title="NITH Confessions - Team .EXE">NITH Confessions</a></li>
                             <li><a href="http://exe.nith.ac.in/" class="tooltip-show" data-toggle="tooltip" title="Team .EXE - website">Team .EXE website</a></li>
-                            <li><a href="hints.php" class="tooltip-show" data-toggle="tooltip" title="View Paradox hints">Paradox Hints</a></li>
                             <li><a href="logout.php" class="tooltip-show" data-toggle="tooltip" title="Logout">Logout</a></li>
                         </ul>
                   </div>

@@ -7,11 +7,11 @@
    //echo "$user_check"; to check the google_id of user
    
    //checking in database username
-   $ses_sql = mysqli_query($link,"SELECT name from users where google_id = '$user_check' ");
+   $ses_sql = mysqli_query($link,"SELECT google_id from users where google_id = '$user_check' ");
    
    while($row = mysqli_fetch_assoc($ses_sql))
    {
-      $session_usr=$row['name'];
+      $session_usr=$row['google_id'];
       //echo $session; to check the username
    }
 

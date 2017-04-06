@@ -120,7 +120,9 @@ echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox 
 	{ 
       echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px; width:40%;" />';
       echo '<code><h3>Hi <b><a href="paradox.php">'.$user->name.'</a></b>, Thanks for Registering!</code></h3><br>';
-		$qaryu=mysqli_query($link,"INSERT INTO users (google_id, name, email, link, picture) VALUES('$user->id','$user->name', '$user->email', '$user->link', '$user->picture')");
+		$qaryu=mysqli_query($link,"INSERT INTO users (google_id, name, email, link, picture, level) VALUES('$user->id','$user->name', '$user->email', '$user->link', '$user->picture',0)");
+    echo '<a href="paradox.php"><button class="btn btn-default" > Click here to play Paradox </button></a>';
+echo '<a href="leaderboard.php"><button class="btn btn-default" > View Paradox - Leaderboard </button></a>';
     }
 	
 	//print user details

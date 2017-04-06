@@ -24,9 +24,26 @@
 session_start();
 include_once('stylesheets.php'); 
 include_once('header.php');
+include_once('sessions.php');
 include_once('dbconnect.php');
 
+$ab=mysqli_query($link,"SELECT level from users WHERE google_id=$session_usr");
+$out=mysqli_fetch_array($ab);
+$l=$out['level'];
+echo $l;
+
+$bc=mysqli_query($link,"SELECT * from imag WHERE level=$l");
+$out1=mysqli_fetch_array($bc);
+$leve=$out1['location'];
+echo "$leve";
+?>
+<section class="global-page-header">
+</section>
 
 
-include_once('footer.php');
+
+
+<?php
+        echo "<img src=".$leve." />";
+        include_once('footer.php');
 ?>
