@@ -36,16 +36,15 @@ $result = mysqli_query($link, $sql);
         {
         ?>
             <div class="userTable">
-                <span id="userImg"> <img src="<?php echo $row['picture']?>"></span>
-                <span id="userName"><?php echo $row['name']?></span>
-                <span id="levels"><?php echo $row['level']?></span>
-                <span id="attempts"><?php echo $row['attempts']?></span>
+                <span class="userImg"> <img src="<?php echo $row['picture']?>"></span>
+                <span class="userName"><?php echo $row['name']?></span>
+                <span class="levels"><?php echo $row['level']?></span>
+                <span class="attempts"><?php echo $row['attempts']?></span>
             </div>
                 
                 
                 <?php } ?>
 
-?>
 <?php
         include_once('footer.php');
 ?>
