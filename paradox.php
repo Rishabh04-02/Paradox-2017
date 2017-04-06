@@ -33,17 +33,26 @@
   </head>
 
 <?php
-session_start();
 include_once('stylesheets.php'); 
 include_once('header.php');
 include_once('sessions.php');
 include_once('dbconnect.php');
 
-$ab=mysqli_query($link,"SELECT level,name,attempt from users WHERE google_id=$session_usr");
+//echo $session_usr;
+
+$ab=mysqli_query($link,"SELECT level,name,attempts from users WHERE google_id='$session_usr'");
 $out=mysqli_fetch_array($ab);
 $l=$out['level'];
 $nam=$out['name'];
-$atmpt=$out['attempt'];
+$atmpt=$out['attempts'];
+/*
+For debugging the code
+echo "\n";
+echo $l;
+echo $nam;
+echo $atmpt;
+echo "thsfjklsadfjkl";
+*/
 
 $bc=mysqli_query($link,"SELECT * from imag WHERE level=$l");
 $out1=mysqli_fetch_array($bc);
@@ -53,8 +62,10 @@ if(isset($_POST['ans']))
 {
     $answer=$_POST['ans'];
     //convert to lowercase for matching
-    $answer=strtolower('$answer');
+    $answer=strtolower($answer);
+    //echo $answer;
     ++$atmpt;
+    //echo $atmpt;
 
     //fetching answer
     $abc=mysqli_query($link,"SELECT chek from imag WHERE level=$l");    
@@ -65,17 +76,18 @@ if(isset($_POST['ans']))
     if ($answer==$ansd) 
     {
         //increase the level no. & the attempt count
-        $le=$l+1;
-        $abd=mysqli_connect($link,"UPDATE users SET level='$le', attempts='$atmpt' WHERE google_id=$session_usr");
+        ++$l;
+        $abd=mysqli_query($link,"UPDATE users SET level='$l', attempts='$atmpt' WHERE google_id=$session_usr");
         echo "<center>Correct answer</center>";
-        header('Location: paradox.php');
+        $bc=mysqli_query($link,"SELECT * from imag WHERE level=$l");
+        $out1=mysqli_fetch_array($bc);
+        $leve=$out1['location'];        
     }
     else
     {
         //increase attempt count only
-        $abd=mysqli_connect($link,"UPDATE users SET attempts='$atmpt' WHERE google_id=$session_usr");
+        $abd=mysqli_query($link,"UPDATE users SET attempts='$atmpt' WHERE google_id=$session_usr");
         echo "<center>Wrong Answer : Try again</center>";
-        echo $session_usr;
     }
 
 }
@@ -88,7 +100,10 @@ if(isset($_POST['ans']))
                                     <h3 class="panel-title">Paradoox Level #<?php echo $l; ?><span style="float: right"><?php echo $nam; ?></span></h3>
                             </div>
                             <div class="panel-body">
-                                <?php echo "<img src=".$leve." />"; ?>
+                                <?php 
+                                        echo "<img src=".$leve." />"; 
+                                        echo '<span style="float: right; font-size:20px;">Your Total Attempts - '.$atmpt.'</span>';
+                                ?>
                             </div>
                             <div class="panel-footer">
                                 <form action="" method="post">

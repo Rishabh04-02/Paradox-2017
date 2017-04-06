@@ -15,12 +15,12 @@
       //echo $session; to check the username
    }
 
-/*
+
    if(!isset($_SESSION['login_user'])|| $login_session=='')
    {
-      //header("location:index.php");
+      header("Location:index.php");
    }
-*/
+
 
 
    if(!isset($_SESSION['login_user'])||$_SESSION['login_user']=='')
