@@ -17,7 +17,21 @@
     <meta property="og:image" content="http://exe.nith.ac.in/images/logo.png">
     <meta property="og:description" content="Paradox is an online event by Team .EXE which is the technical team of Computer Science & Engineering Department at NIT Hamirpur">
     <title>Paradox leaderboard - Team .EXE</title>
-
+<style type="text/css">
+    .table-responsive {
+        padding:5% 5% 5% 5%;
+        text-align: center;
+    }
+    .table-responsive td img{
+        width: 25%;
+    }
+    @media screen and (max-width: 768px)
+{
+    .table-responsive td img{
+        width: 100%;
+    }
+}
+</style>
   </head>
 <body>
 <?php
@@ -27,25 +41,29 @@ include_once('header.php');
 include_once('sessions.php');
 include_once('dbconnect.php');
 
-?>
-<?php
-$sql="select * from users order by level desc, attempts asc;";
-$result = mysqli_query($link, $sql);
-    if(!$result)die ("Database access failed:". mysqli_error($link));
-    while($row=mysqli_fetch_array($result))
-        {
-        ?>
-            <div class="userTable">
-                <span class="userImg"> <img src="<?php echo $row['picture']?>"></span>
-                <span class="userName"><?php echo $row['name']?></span>
-                <span class="levels"><?php echo $row['level']?></span>
-                <span class="attempts"><?php echo $row['attempts']?></span>
-            </div>
-                
-                
-                <?php } ?>
+echo '<div class="table-responsive">';
+echo '<table class="table table-hover"><tr><b>';
+echo "<td>Photo</td>";
+echo "<td>Name</td>";
+echo "<td>Level</td>";
+echo "<td>Attempts / Status</td><tr></b>";
 
-<?php
+        $result = mysqli_query($link,"select * from users order by level desc, attempts asc");
+        if(!$result)die ("Database access failed:". mysqli_error($link));
+        while($row=mysqli_fetch_array($result))
+            {
+?>
+            <tr>
+            <td><img src="<?php echo $row['picture']?>"></td>
+            <td><a href="<?php echo $row['link']; ?>" target="_blank"><button class="btn"><?php echo $row['name']?></button></a></td>
+            <td><?php echo $row['level']?></td>
+            <td><?php echo $row['attempts']?></td>
+            </tr>
+                
+                
+<?php 
+            } 
+        echo "</table></div>";
         include_once('footer.php');
 ?>
     </body>

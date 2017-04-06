@@ -25,7 +25,7 @@
   padding-bottom: 10px;
 }
 .panel-body img {
-    width: 50%;
+    width: 70%;
     float: left;
 }
 </style>
@@ -78,7 +78,9 @@ if(isset($_POST['ans']))
         //increase the level no. & the attempt count
         ++$l;
         $abd=mysqli_query($link,"UPDATE users SET level='$l', attempts='$atmpt' WHERE google_id=$session_usr");
-        echo "<center>Correct answer</center>";
+        include_once('paradox_right.php');
+        echo "<center>Well done! Correct answer</center>";
+        include_once('paradox_bottom.php');
         $bc=mysqli_query($link,"SELECT * from imag WHERE level=$l");
         $out1=mysqli_fetch_array($bc);
         $leve=$out1['location'];        
@@ -87,11 +89,25 @@ if(isset($_POST['ans']))
     {
         //increase attempt count only
         $abd=mysqli_query($link,"UPDATE users SET attempts='$atmpt' WHERE google_id=$session_usr");
-        echo "<center>Wrong Answer : Try again</center>";
+        
+        //checking if message is empty/not
+        if ($answer) 
+        {
+            include_once('paradox_wrong.php');
+            echo "<center>Wrong Answer : Try again!</center>";
+            include_once('paradox_bottom.php');
+        }
+        else
+        {
+            include_once('paradox_wrong.php');
+            echo "<center>Submitting answer without entering value is increasing your no. of attempts. It really matters.</center>";
+            include_once('paradox_bottom.php');
+        }
+        
     }
 
 }
-
+                        
 ?>
 
                 <div class="demo-card">
@@ -100,15 +116,15 @@ if(isset($_POST['ans']))
                                     <h3 class="panel-title">Paradoox Level #<?php echo $l; ?><span style="float: right"><?php echo $nam; ?></span></h3>
                             </div>
                             <div class="panel-body">
-                                <?php 
-                                        echo "<img src=".$leve." />"; 
-                                        echo '<span style="float: right; font-size:20px;">Your Total Attempts - '.$atmpt.'</span>';
-                                ?>
+                <?php 
+                        echo '<pre>Your Total Attempts - '.$atmpt.'</pre>';
+                        echo "<img src=".$leve." />";                          
+                ?>
                             </div>
                             <div class="panel-footer">
                                 <form action="" method="post">
                                     <input type="text" name="ans">
-                                    <input type="submit" value="send">
+                                    <input class="btn" type="submit" value="Submit Answer">
                                 </form>
                             </div>
                         </div>
