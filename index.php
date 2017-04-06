@@ -14,7 +14,7 @@
         team .exe, exe, NITH , nit hamirpur, CSED, CSED NITH, team exe, paradox, web-o-magica, nimbus nith
         nimbus 2016, nimbus 2k16, nit hamirpur, nith">
     <meta property="og:title" content="Paradox - Team .EXE">
-    <meta property="og:image" content="http://exe.nith.ac.in/images/logo.png">
+    <meta property="og:image" content="http://exe.nith.ac.in/images/paradox.jpeg">
     <meta property="og:description" content="Paradox is an online event by Team .EXE which is the technical team of Computer Science & Engineering Department at NIT Hamirpur">
     <title>Paradox - Team .EXE</title>
 
