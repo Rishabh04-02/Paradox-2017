@@ -62,8 +62,6 @@ if (isset($_GET['code']))
   $client->authenticate($_GET['code']);
   $_SESSION['access_token'] = $client->getAccessToken();
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-  
-  
 }
 
 /************************************************
@@ -96,18 +94,23 @@ else
 	
 	$user = $service->userinfo->get(); //get user info 
 	$_SESSION['login_user']=$user['id'];
-	include_once('user_session.php');
+	include_once('sessions.php');
+  $nm=$user['id'];
 	
 	//check if user exist in database using COUNT
 $resulta = mysqli_query($link,"SELECT COUNT(google_id) as usercount FROM users WHERE google_id=$user->id");
 $user_count = $resulta->fetch_object()->usercount; //will return 0 if user doesn't exist
 	
-	//show user picture
-	echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px; width:40%;" />';
+	
 	
 	if($user_count!=0) //if user already exist change greeting text to "Welcome Back"
     {
         
+//show user picture
+      $qrya=mysqli_query($link,"SELECT picture FROM users WHERE google_id=$nm");
+      $ftch=mysqli_fetch_array($qrya);
+      $p=$ftch['picture'];
+      echo '<img src="'.$p.'" style="float: right;margin-top: 33px; width:40%;" />';
 echo '<h3> Welcome back <b><a href="paradox.php">'.$user->name.'</a></b> Nice to see you again!</h3><br>';
 echo '<a href="paradox.php"><button class="btn btn-default" > Click here to play Paradox </button></a> ';
 echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox - Leaderboard </button></a>';
@@ -115,7 +118,8 @@ echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox 
     }
 	else //else greeting text "Thanks for registering"
 	{ 
-        echo '<code><h3>Hi <b><a href="paradox.php">'.$user->name.'</a></b>, Thanks for Registering!</code></h3><br>';
+      echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px; width:40%;" />';
+      echo '<code><h3>Hi <b><a href="paradox.php">'.$user->name.'</a></b>, Thanks for Registering!</code></h3><br>';
 		$qaryu=mysqli_query($link,"INSERT INTO users (google_id, name, email, link, picture) VALUES('$user->id','$user->name', '$user->email', '$user->link', '$user->picture')");
     }
 	
@@ -128,6 +132,4 @@ echo '<br></div>';
 echo '</div>';
 echo "</center>";
 include_once('footer.php');
-
 ?>
-
