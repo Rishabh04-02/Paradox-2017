@@ -1,0 +1,14 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.container{
+	position:absolute;	
+	top:200px;
+	left:450px;
+}

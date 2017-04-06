@@ -1,0 +1,99 @@
+*{
+	box-sizing:border-box;
+    margin:0px;
+	padding:0px;
+    font-size:12px;
+}
+body{
+}
+#info{
+    padding:10px;
+    margin-left:2%;
+    margin-right:0%;
+    margin-top:0%;
+    background-color: #ff3333;
+    border:1px solid grey;
+    color:white;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+#warning{
+    margin-left:1%;
+}
+#main{
+    position:absolute;
+    top:15%;
+    left:0%;
+    padding:15px 15px;
+    background-color: rgba(88, 62, 126, 0.2);
+    border: 1px solid rgba(86, 61, 124, .2);
+}
+#reqd{
+    margin-bottom: 20px;
+}
+.input{
+    margin-bottom:20px;
+}
+.input .inpf{
+    padding: 6px 4px;
+}
+/*.extra{  
+    margin-left:5px;
+}*/
+ .g-recaptcha{
+        transform:scale(0.80);-webkit-transform:scale(0.80);transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+#submission{
+    margin-left:90px;
+    background-color:#0033cc;
+}
+@media only screen and (min-width:400px){
+   *{
+        font-size:15px;
+    }
+    #main{
+        top:18%;
+        left:5%;
+    }
+    .g-recaptcha{
+        transform:scale(0.80);-webkit-transform:scale(0.80);transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+}
+@media only screen and (min-width:500px){
+    *{
+        font-size:15px;
+    }
+    #main{
+        top:22%;
+        left:10%;
+    }
+    .g-recaptcha{
+        transform:scale(0.80);-webkit-transform:scale(0.80);transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+}
+@media only screen and (min-width:600px){
+    #main{
+        top:26%;
+        left:20%;
+    }
+    .g-recaptcha{
+        transform:scale(0.95);-webkit-transform:scale(0.95);transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+}
+@media only screen and (min-width:768px){
+    #main{
+        left:35%;
+        top:12%;
+    }
+     .g-recaptcha{
+        transform:scale(0.97);-webkit-transform:scale(0.97);transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+}
+@media only screen and (orientation:landscape and max-height:600px){
+    #main{top:20%;}
+}
+@media only screen and (orientation:landscape and max-height:400px){
+    #main{
+        top:10%;
+    }
+}

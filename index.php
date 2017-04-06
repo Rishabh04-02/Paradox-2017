@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-client_id" content="307712715810-5gqv439ef8l9hmmod3ggpbdplcc7t7gq.apps.googleusercontent.com">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Paradox - Team .EXE is the technical team of Computer Science & Engineering Department for technical fest NIMBUS at NIT Hamirpur.">
     <meta name="author" content="Team .EXE">
-    <link rel="icon" href="images/title.png">
-
-    <title>Login - Team .EXE</title>
+    <link rel="icon" href="images/head.png">
+    <meta name="description" content="Paradox is an online event by Team .EXE which is the technical team of Computer 
+      Science & Engineering Department at NIT Hamirpur">
+    <meta name="keywords" content="paradox, paradox nith, paradox team .exe, paradox nimbus,  paradox nimbus 2016,
+        team .exe, exe, NITH , nit hamirpur, CSED, CSED NITH, team exe, paradox, web-o-magica, nimbus nith
+        nimbus 2016, nimbus 2k16, nit hamirpur, nith">
+    <meta property="og:title" content="Paradox - Team .EXE">
+    <meta property="og:image" content="http://exe.nith.ac.in/images/logo.png">
+    <meta property="og:description" content="Paradox is an online event by Team .EXE which is the technical team of Computer Science & Engineering Department at NIT Hamirpur">
+    <title>Paradox - Team .EXE</title>
 
   </head>
 
@@ -26,22 +32,9 @@ include_once('dbconnect.php');
 //You can get it from : https://console.developers.google.com/
 $client_id = '307712715810-5gqv439ef8l9hmmod3ggpbdplcc7t7gq.apps.googleusercontent.com'; 
 $client_secret = 'yvXrJI4PIvIEtJr4G-DBd44N';
-$redirect_uri = 'http://localhost/exe/login.php';
+$redirect_uri = 'http://localhost/github/Paradox-2017/index.php';
 
-/*//database
-$db_username = "xxxxxxxxx"; //Database Username
-$db_password = "xxxxxxxxx"; //Database Password
-$host_name = "localhost"; //Mysql Hostname
-$db_name = 'xxxxxxxxx'; //Database Name
-*/
 
-/************************************************
-  Make an API request on behalf of a user. In
-  this case we need to have a valid OAuth 2.0
-  token for the user, so we need to send them
-  through a login flow. To do this we need some
-  information from our API console project.
- ************************************************/
 $client = new Google_Client();
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
@@ -69,7 +62,8 @@ if (isset($_GET['code']))
   $client->authenticate($_GET['code']);
   $_SESSION['access_token'] = $client->getAccessToken();
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-  exit;
+  
+  
 }
 
 /************************************************
@@ -86,8 +80,6 @@ else
 }
 
 //Display user info or display login url as per the info we have.
-echo "<br><br><br>";
-echo '<div class="jumbotron">';
 echo '<div class="container">';
 
 if (isset($authUrl))
@@ -96,7 +88,7 @@ if (isset($authUrl))
 	echo '<div align="center">';
 	echo '<img class="btlog1" src="images/logo.png"><br>';
 	echo "<h3><code>Team .EXE wants you to Sign In to your Google account</code></h3><br>";
-	echo '<a class="login" href="' . $authUrl . '"><img class="btlog1" src="images/signin_button.png" /></a>';
+	echo '<a class="login" href="' . $authUrl . '"><img class="btlog1" src="images/signin_button.png" /></a><br>';
 	
 } 
 else 
@@ -116,12 +108,14 @@ $user_count = $resulta->fetch_object()->usercount; //will return 0 if user doesn
 	if($user_count!=0) //if user already exist change greeting text to "Welcome Back"
     {
         
-echo '<h3> Welcome back <b><a href="profile.php">'.$user->name.'</a></b> Nice to see you again!</h3>';
+echo '<h3> Welcome back <b><a href="paradox.php">'.$user->name.'</a></b> Nice to see you again!</h3><br>';
+echo '<a href="paradox.php"><button class="btn btn-default" > Click here to play Paradox </button></a> ';
+echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox - Leaderboard </button></a>';
 
     }
 	else //else greeting text "Thanks for registering"
 	{ 
-        echo '<code><h3>Hi <b><a href="profile.php">'.$user->name.'</a></b>, Thanks for Registering!</code></h3>';
+        echo '<code><h3>Hi <b><a href="paradox.php">'.$user->name.'</a></b>, Thanks for Registering!</code></h3><br>';
 		$qaryu=mysqli_query($link,"INSERT INTO users (google_id, name, email, link, picture) VALUES('$user->id','$user->name', '$user->email', '$user->link', '$user->picture')");
     }
 	
@@ -130,9 +124,7 @@ echo '<h3> Welcome back <b><a href="profile.php">'.$user->name.'</a></b> Nice to
 	print_r($user);
 	echo '</pre>';*/
 }
-include_once('user_navigation.php');
-echo '</div>';
-echo '</div>';
+echo '<br></div>';
 echo '</div>';
 echo "</center>";
 include_once('footer.php');

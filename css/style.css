@@ -1,0 +1,214 @@
+#footer {
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.copyright a{
+  color:  #3498db;
+}
+.copyright a:hover{
+   text-transform: uppercase;
+	 text-decoration: none;
+}
+
+/* responsive footer */
+@media screen and (max-width: 768px)
+{
+
+  #footer {
+  bottom: 0;
+  width: 100%;
+  padding-top: 0;
+}
+.copyright{
+  font-size: 12px;
+}
+.copyright a{
+  color:  #3498db;
+}
+.copyright a:hover{
+   font-size: 13px;
+   text-transform: uppercase;
+   text-decoration: none;
+}
+}
+
+.btlog{
+	padding-top: 1px;
+	width: 170px;
+}
+.btlog1{
+	width: 40%;
+}
+
+/* navigation styles */
+a.back{
+            width:256px;
+            height:73px;
+            position:fixed;
+            bottom:15px;
+            right:15px;
+            background:#fff no-repeat top left;
+}
+.scroll{
+            width:133px;
+            height:61px;
+            position:fixed;
+            bottom:15px;
+            left:150px;
+            background:#fff no-repeat top left;
+}
+.info{
+            text-align:right;
+
+}
+ul#navigation {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    top: 100px;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+ul#navigation li {
+    width: 90px;
+}
+ul#navigation li a {
+    display: block;
+    margin-left: -2px;
+    width: 93px;
+    height: 65px;    
+    background-color: #454545;
+    background-repeat:no-repeat;
+    background-position:center center;
+    border:1px solid #454545;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    /*-moz-box-shadow: 0px 3px 3px  #fff;
+    -webkit-box-shadow: 0px 3px 3px #fff;
+    */
+    opacity: 1;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+ul#navigation .home a{
+    background-image: url(../images/home.png);
+}
+ul#navigation .about a      {
+    background-image: url(../images/about.png);
+}
+ul#navigation .contact a    {
+    background-image: url(../images/contact.png);
+}
+ul#navigation .projects a      {
+    background-image: url(../images/projects.png);
+}
+ul#navigation .events a      {
+    background-image: url(../images/events.png);
+}
+ul#navigation .members a   {
+    background-image: url(../images/members.png);
+}
+ul#navigation .latest a     {
+    background-image: url(../images/latest.png);
+}
+/*  responsiveness of navigation  */
+@media screen and (max-width: 768px) {
+
+ul#navigation {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    top: 90px;
+    left: 60px;
+    list-style: none;
+    z-index:9999;
+}
+
+ul#navigation li a {
+    display: block;
+    margin-left: -2px;
+    width: 93px;
+    height: 65px;    
+    /* background-color: #454545; */
+    background-color: transparent;
+    background-repeat:no-repeat;
+    background-position:center center;
+    /* border:1px solid #454545; */
+    border-color: transparent;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    /*-moz-box-shadow: 0px 3px 3px  #fff;
+    -webkit-box-shadow: 0px 3px 3px #fff;
+    */
+    opacity: 1;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+.container{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+}
+
+.jumbotrona {
+  color: inherit;w
+  width: 90%;
+  background-color: #eee;
+}
+.jumbotrona h1,
+.jumbotrona .h1 {
+  color: inherit;
+}
+.jumbotrona p {
+  font-size: 21px;
+}
+.jumbotrona > hr {
+  border-top-color: #d5d5d5;
+}
+.container .jumbotrona,
+.container-fluid .jumbotrona {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 6px;
+}
+.jumbotrona .container {
+  max-width: 95%;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotrona {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .container .jumbotrona,
+  .container-fluid .jumbotrona {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotrona h1,
+  .jumbotrona .h1 {
+    font-size: 63px;
+  }
+}
+
+/* fix logout button header */
+.abc{
+      color: #337ab7;
+}
+
+/* members page custtomizations */
+#fram
+{
+  width: 100%;
+  height: 527px;
+}
