@@ -46,11 +46,11 @@ echo '<table class="table table-hover"><tr><b>';
 echo "<td>Photo</td>";
 echo "<td>Name</td>";
 echo "<td>Level</td></b>";
-
+$cn=0;
         $result = mysqli_query($link,"select * from users order by level desc, attempts asc");
         if(!$result)die ("Database access failed:". mysqli_error($link));
         while($row=mysqli_fetch_array($result))
-            {
+            { $cn++;
 ?>
             <tr>
             <td><img src="<?php echo $row['picture']?>"></td>
@@ -62,6 +62,7 @@ echo "<td>Level</td></b>";
 <?php 
             } 
         echo "</table></div>";
+        echo "<center>Registered users : $cn</center><br>";
         include_once('footer.php');
 ?>
     </body>
