@@ -113,12 +113,20 @@ if(isset($_POST['ans']))
                 <div class="demo-card">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                    <h3 class="panel-title">Paradoox Level #<?php echo $l; ?><span style="float: right"><?php echo $nam; ?></span></h3>
+                                    <h3 class="panel-title">Paradox Level #<?php echo $l; ?><span style="float: right"><?php echo $nam; ?></span>
+                                    </h3>
                             </div>
                             <div class="panel-body">
                 <?php 
-                        echo '<pre>Your Total Attempts - '.$atmpt.'</pre>';
-                        echo "<img src=".$leve." />";                          
+                        echo '<pre>Your Total Attempts - '.$atmpt.'</pre>'; 
+                        echo "<img src=".$leve." />";   
+                        echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox - Leaderboard </button></a>';
+                        echo "<br><br>";
+                        echo ' <a href="hints.php"><button class="btn btn-default" > View Paradox - Hints </button></a>';
+                        echo "<br><br>";
+                        echo 'If you find our projects/events (Paradox) interesting/worth suggesting please vote for us, It will help us grow. We are Team .EXE (.EXE)<br>';
+                        echo ' <a href="http://technicaldeco.org/" target="_blank"><button class="btn btn-default" > Vote Here </button></a>';
+                                              
                 ?>
                             </div>
                             <div class="panel-footer">
