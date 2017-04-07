@@ -39,6 +39,12 @@ include_once('sessions.php');
 include_once('dbconnect.php');
 
 //echo $session_usr;
+if(!isset($_SESSION['login_user']))
+   {
+      //header("Location:index.php");
+      echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+      exit();
+   }
 
 $ab=mysqli_query($link,"SELECT level,name,attempts from users WHERE google_id='$session_usr'");
 $out=mysqli_fetch_array($ab);
