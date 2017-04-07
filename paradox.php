@@ -123,7 +123,7 @@ if(isset($_POST['ans']))
                             </div>
                             <div class="panel-body">
                             If you find our projects/events (Paradox) interesting/worth suggesting please vote for us, It will help us grow. We are Team .EXE (.EXE), These voting lines will be open till 08 April, 2017 , 11:59PM <a href="http://technicaldeco.org/" target="_blank"><button class="btn btn-default" > Vote Here & help us grow</button></a>
-                            </div>
+                            </div></div>
 
                         <div class="panel panel-info">
                             <div class="panel-heading">
@@ -133,7 +133,9 @@ if(isset($_POST['ans']))
                             <div class="panel-body">
                 <?php 
                         echo '<pre>Your Total Attempts - '.$atmpt.'</pre>'; 
-                        echo "<img src=".$leve." />";   
+                        echo "<img src=".$leve." />"; 
+                        echo ' <a href="instructions.php"><button class="btn btn-default" > View Paradox - Instructions </button></a>';   
+                        echo "<br><br>";
                         echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox - Leaderboard </button></a>';
                         echo "<br><br>";
                         echo ' <a href="hints.php"><button class="btn btn-default" > View Paradox - Hints </button></a>';                                              
