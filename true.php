@@ -45,7 +45,8 @@ echo '<div class="table-responsive">';
 echo '<table class="table table-hover"><tr><b>';
 echo "<td>Photo</td>";
 echo "<td>Name</td>";
-echo "<td>Level</td></b>";
+echo "<td>Level</td>";
+echo "<td>Attempts / Status</td><tr></b>";
 
         $result = mysqli_query($link,"select * from users order by level desc, attempts asc");
         if(!$result)die ("Database access failed:". mysqli_error($link));
@@ -56,6 +57,7 @@ echo "<td>Level</td></b>";
             <td><img src="<?php echo $row['picture']?>"></td>
             <td><a href="<?php echo $row['link']; ?>" target="_blank"><button class="btn"><?php echo $row['name']?></button></a></td>
             <td><?php echo $row['level']?></td>
+            <td><?php echo $row['attempts']?></td>
             </tr>
                 
                 
