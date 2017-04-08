@@ -43,6 +43,7 @@ include_once('dbconnect.php');
 
 echo '<div class="table-responsive">';
 echo '<table class="table table-hover"><tr><b>';
+echo "<td>Position</td>";
 echo "<td>Photo</td>";
 echo "<td>Name</td>";
 echo "<td>Level</td></b>";
@@ -53,6 +54,7 @@ $cn=0;
             { $cn++;
 ?>
             <tr>
+            <td><?php echo $cn; ?></td>
             <td><img src="<?php echo $row['picture']?>"></td>
             <td><a href="<?php echo $row['link']; ?>" target="_blank"><button class="btn"><?php echo $row['name']?></button></a></td>
             <td><?php echo $row['level']?></td>
