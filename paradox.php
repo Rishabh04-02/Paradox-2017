@@ -117,14 +117,6 @@ if(isset($_POST['ans']))
 ?>
 
                 <div class="demo-card">
-                <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                    <h3 class="panel-title"><?php echo $nam; ?>, Help us Grow </span></h3>
-                            </div>
-                            <div class="panel-body">
-                            If you find our projects/events (Paradox) interesting/worth suggesting please vote for us, It will help us grow. We are Team .EXE (.EXE), These voting lines will be open till 08 April, 2017 , 11:59PM <a href="http://technicaldeco.org/" target="_blank"><button class="btn btn-default" > Vote Here & help us grow</button></a>
-                            </div></div>
-
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                     <h3 class="panel-title">Paradox Level #<?php echo $l; ?><span style="float: right"><?php echo $nam; ?></span>
