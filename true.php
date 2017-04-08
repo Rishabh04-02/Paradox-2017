@@ -49,7 +49,7 @@ echo "<td>Name</td>";
 echo "<td>Level</td>";
 echo "<td>Attempts / Status</td><tr></b>";
 $cn=0;
-        $result = mysqli_query($link,"select * from users order by level desc, attempts asc");
+        $result = mysqli_query($link,"select * from users order by level desc");
         if(!$result)die ("Database access failed:". mysqli_error($link));
         while($row=mysqli_fetch_array($result))
             {  $cn++;
