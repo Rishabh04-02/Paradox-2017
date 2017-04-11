@@ -57,7 +57,12 @@ $cn=0;
             <td><?php echo $cn; ?></td>
             <td><img src="<?php echo $row['picture']?>"></td>
             <td><a href="<?php echo $row['link']; ?>" target="_blank"><button class="btn"><?php echo $row['name']?></button></a></td>
-            <td><?php echo $row['level']?></td>
+            <td><?php 
+            if($row['level']==17)
+            	echo "Completed";
+            else
+            	echo $row['level'];
+            ?></td>
             </tr>
                 
                 
