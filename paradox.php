@@ -125,7 +125,14 @@ if(isset($_POST['ans']))
                             <div class="panel-body">
                 <?php 
                         //echo '<pre>Your Total Attempts - '.$atmpt.'</pre>'; 
-                        echo "<img src=".$leve." />"; 
+                if ($l==17) 
+                {
+                    echo "Congratulations, Paradox completed\n";
+                }
+                else
+                {
+                    echo "<img src=".$leve." />"; 
+                }
                         echo ' <a href="instructions.php"><button class="btn btn-default" > View Paradox - Instructions </button></a>';   
                         echo "<br><br>";
                         echo ' <a href="leaderboard.php"><button class="btn btn-default" > View Paradox - Leaderboard </button></a>';
